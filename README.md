@@ -1,6 +1,6 @@
 # delete-old-idea-data
 
-This shell script allows you to easily delete the folders left by previous versions of JetBranins IDEs after upgrading them.
+This shell script allows you to easily delete the folders left by previous versions of IntelliJ IDEA and other JetBranins IDEs after upgrading them.
 
 Supported OS:
 * Linux, macOS, etc (any *nix with a Bash shell)
