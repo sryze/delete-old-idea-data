@@ -44,14 +44,14 @@ done
 
 CONFIG_PREFIX=
 CACHE_PREFIX=
-case "$(uname -s)" in
+case "$(uname -o)" in
+    Msys|Cygwin)
+        CONFIG_PREFIX="$APPDATA/JetBrains"
+        CACHE_PREFIX="$LOCALAPPDATA/JetBrains"
+        ;;
     Darwin)
         CONFIG_PREFIX="$HOME/Library/Application Support/JetBrains"
         CACHE_PREFIX="$HOME/Library/Caches/JetBrains"
-        ;;
-    Cygwin|MinGW)
-        CONFIG_PREFIX="$APPDATA/JetBrains"
-        CACHE_PREFIX="$LOCALAPPDATA/JetBrains"
         ;;
     *)
         CONFIG_PREFIX="$HOME/.config/JetBrains"
@@ -75,6 +75,6 @@ for ide in $IDE_LIST; do
     done
 done
 
-if [ -z "$deleted_count" ]; then
-    echo "Nothing to do"
+if [ $deleted_count -eq 0 ]; then
+    echo "Nothing to delete"
 fi
