@@ -44,12 +44,12 @@ done
 
 CONFIG_PREFIX=
 CACHE_PREFIX=
-case "$(uname -o)" in
-    Msys|Cygwin)
+case "$(uname -s)" in
+    CYGWIN*|MSYS*|MINGW*)
         CONFIG_PREFIX="$APPDATA/JetBrains"
         CACHE_PREFIX="$LOCALAPPDATA/JetBrains"
         ;;
-    Darwin)
+    Darwin*)
         CONFIG_PREFIX="$HOME/Library/Application Support/JetBrains"
         CACHE_PREFIX="$HOME/Library/Caches/JetBrains"
         ;;
