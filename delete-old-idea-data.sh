@@ -68,9 +68,13 @@ for ide in $IDE_LIST; do
     fi
     cache_dirs=$(find "${CACHE_PREFIX}" -type d -name "$ide*" | sort -ur | tail +2 | tail +$start)
     IFS=$'\n'
-    for dir in $(echo $config_dirs) $(echo $cache_dirs); do
-        echo "Deleting $dir ..."
-        [ ! "$DRY_RUN" ] && rm -rf $dir
+    for dir in $(echo "$config_dirs") $(echo "$cache_dirs"); do
+        if [ "$DRY_RUN" -ne 0 ]; then
+            echo "[dry-run] Deleting $dir ..."
+        else
+            echo "Deleting $dir ..."
+            rm -rf "$dir"
+        fi
         deleted_count=$(expr $deleted_count + 1)
     done
 done
