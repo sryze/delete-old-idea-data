@@ -4,7 +4,7 @@ This shell script allows you to easily delete the folders left by previous versi
 
 Supported OS:
 * Linux, macOS, etc (any *nix with a Bash shell)
-* Windows - via Git Bash/Cygwin/MinGW/WSL
+* Windows - via Git Bash/Cygwin/MinGW
 
 Usage:
 
