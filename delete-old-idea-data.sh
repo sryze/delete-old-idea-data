@@ -11,7 +11,7 @@ do
         -h|--help)
             echo "Usage: $0 [--keep-versions N] [--cache-only] [--dry-run] ide_name1 ... ide_nameN"
             echo ""
-            echo -e "--keep-versions=N\t\Number of previous versions to keep (default is 1)"
+            echo -e "--keep-versions=N\t\tNumber of previous versions to keep (default is 1)"
             echo -e "--cache-only\t\t\tDelete only the caches"
             echo -e "--dry-run\t\t\tDon't actually delete anything"
             echo -e "ide_name1 ... ide_nameN\t\tIDE names can be one of: IntelliJIdea, IdeaIC, CLion, GoLand, WebStorm, PhpStorm, AppCode"
