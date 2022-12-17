@@ -9,5 +9,5 @@ Supported OS:
 Usage:
 
 ```
-./delete-old-idea-data.sh [--keep-versions=N] [--cache-only] [--dry-run] IntelliJIdea IdeaCI GoLand WebStorm
+./delete-old-idea-data.sh [--keep-versions N] [--cache-only] [--dry-run] IntelliJIdea IdeaCI GoLand WebStorm
 ```
