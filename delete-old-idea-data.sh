@@ -84,17 +84,18 @@ deleted_count=0
 
 for ide in $IDE_LIST; do
     if [ "$CACHE_ONLY" -eq 0 ]; then
-        for dir in ${CONFIG_PREFIX//:/ }; do
+        IFS=$'\n'
+        for dir in $(echo "$CONFIG_PREFIX" | tr ':' "\n"); do
             for config_dir in $(find_subdirs "$dir" "$ide"); do
                 delete_dir "$config_dir"
                 deleted_count=$((deleted_count + 1))
             done
         done
     fi
-    for dir in ${CACHE_PREFIX//:/ }; do
+    for dir in $(echo "$CACHE_PREFIX" | tr ':' "\n"); do
         for cache_dir in $(find_subdirs "$dir" "$ide"); do
             delete_dir "$cache_dir"
-                deleted_count=$((deleted_count + 1))
+            deleted_count=$((deleted_count + 1))
         done
     done
 done
