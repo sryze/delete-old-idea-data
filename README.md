@@ -9,5 +9,10 @@ Supported OS:
 Usage:
 
 ```
-./delete-old-idea-data.sh [--keep-versions N] [--cache-only] [--dry-run] IntelliJIdea IdeaCI GoLand WebStorm
+Usage: ./delete-old-idea-data.sh [--keep-versions N] [--cache-only] [--dry-run] ide_name1 ... ide_nameN
+
+--keep-versions N               Number of previous versions to keep (default is 1)
+--cache-only                    Delete only the caches
+--dry-run                       Don't actually delete anything
+ide_name1 ... ide_nameN         IDE names can be one of: IntelliJIdea, IdeaIC, CLion, GoLand, WebStorm, PhpStorm, AppCode
 ```
