@@ -14,7 +14,7 @@ do
             echo -e "--keep-versions N\t\tNumber of previous versions to keep (default is 1)"
             echo -e "--cache-only\t\t\tDelete only the caches"
             echo -e "--dry-run\t\t\tDon't actually delete anything"
-            echo -e "ide_name1 ... ide_nameN\t\tIDE names can be one of: IntelliJIdea, IdeaIC, CLion, GoLand, WebStorm, PhpStorm, AppCode"
+            echo -e "ide_name1 ... ide_nameN\t\tIDE names can be one of: IntelliJIdea, IdeaIC, CLion, GoLand, WebStorm, PhpStorm, AppCode, AndroidStudio"
             exit
             ;;
         --keep-versions)
