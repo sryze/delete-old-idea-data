@@ -49,16 +49,28 @@ CONFIG_PREFIX=
 CACHE_PREFIX=
 case "$(uname -s)" in
     CYGWIN*|MSYS*|MINGW*)
-        CONFIG_PREFIX="$APPDATA/Google:$APPDATA/JetBrains"
-        CACHE_PREFIX="$LOCALAPPDATA/Google:$LOCALAPPDATA/JetBrains"
+        CONFIG_PREFIX="\
+$APPDATA/Google
+$APPDATA/JetBrains"
+        CACHE_PREFIX="\
+$LOCALAPPDATA/Google
+$LOCALAPPDATA/JetBrains"
         ;;
     Darwin*)
-        CONFIG_PREFIX="$HOME/Library/Application Support/Google:$HOME/Library/Application Support/JetBrains"
-        CACHE_PREFIX="$HOME/Library/Caches/Google:$HOME/Library/Caches/JetBrains"
+        CONFIG_PREFIX="\
+$HOME/Library/Application Support/Google
+$HOME/Library/Application Support/JetBrains"
+        CACHE_PREFIX="\
+$HOME/Library/Caches/Google
+$HOME/Library/Caches/JetBrains"
         ;;
     *)
-        CONFIG_PREFIX="$HOME/.config/Google:$HOME/.config/JetBrains"
-        CACHE_PREFIX="$HOME/.cache/Google:$HOME/.cache/JetBrains"
+        CONFIG_PREFIX="\
+$HOME/.config/Google
+$HOME/.config/JetBrains"
+        CACHE_PREFIX="\
+$HOME/.cache/Google
+$HOME/.cache/JetBrains"
         ;;
 esac
 
@@ -85,14 +97,15 @@ deleted_count=0
 for ide in $IDE_LIST; do
     if [ "$CACHE_ONLY" -eq 0 ]; then
         IFS=$'\n'
-        for dir in $(echo "$CONFIG_PREFIX" | tr ':' "\n"); do
+        for dir in $CONFIG_PREFIX; do
             for config_dir in $(find_subdirs "$dir" "$ide"); do
                 delete_dir "$config_dir"
                 deleted_count=$((deleted_count + 1))
             done
         done
     fi
-    for dir in $(echo "$CACHE_PREFIX" | tr ':' "\n"); do
+    for dir in $CACHE_PREFIX; do
+        IFS=$'\n'
         for cache_dir in $(find_subdirs "$dir" "$ide"); do
             delete_dir "$cache_dir"
             deleted_count=$((deleted_count + 1))
