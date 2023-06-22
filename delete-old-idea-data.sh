@@ -87,11 +87,13 @@ function find_subdirs() {
 }
 
 function delete_dir() {
-    dir=$1
+    local dir=$1
+    local size
+    size=$(du -sh "$dir" | cut -f 1 | cut -d ' ' -f 1)
     if [ "$DRY_RUN" -ne 0 ]; then
-            echo "[dry-run] Deleting $dir ..."
+        echo "[dry-run] Deleting $dir ($size)"
     else
-        echo "Deleting $dir ..."
+        echo "Deleting $dir ($size)"
         rm -rf "$dir"
     fi
 }
