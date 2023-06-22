@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 IDE_LIST=""
 KEEP_VERSIONS=1
