@@ -45,6 +45,8 @@ if [ "$IDE_LIST" = "" ]; then
     IDE_LIST="IntelliJIdea IdeaIC"
 fi
 
+# https://intellij-support.jetbrains.com/hc/en-us/articles/206544519-Directories-used-by-the-IDE-to-store-settings-caches-plugins-and-logs
+
 CONFIG_PREFIX=
 CACHE_PREFIX=
 case "$(uname -s)" in
@@ -70,7 +72,9 @@ $HOME/.config/Google
 $HOME/.config/JetBrains"
         CACHE_PREFIX="\
 $HOME/.cache/Google
-$HOME/.cache/JetBrains"
+$HOME/.local/share/Google
+$HOME/.cache/JetBrains
+$HOME/.local/share/JetBrains"
         ;;
 esac
 
